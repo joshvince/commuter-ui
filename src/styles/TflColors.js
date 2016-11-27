@@ -1,0 +1,11 @@
+export const bakerlooBrown = 'rgb(178,99,0)';
+export const centralRed = 'rgb(220,36,31)';
+export const circleYellow = 'rgb(255,211,41)';
+export const districtGreen = 'rgb(0,125,50)';
+export const hammersmithPink = 'rgb(244,169,190)';
+export const jubileeGrey = 'rgb(161,165,167)';
+export const metropolitanPurple = 'rgb(155,0,88)';
+export const northernBlack = 'rgb(0,0,0)';
+export const picadillyBlue = 'rgb(0,25,168)';
+export const victoriaBlue = 'rgb(0,152,216)';
+export const waterlooCityTurquoise = 'rgb(147,206,186)';
