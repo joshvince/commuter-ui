@@ -1,0 +1,20 @@
+#lineHeader {
+  color: white;
+  background-color: rgb(0,152,216);
+  padding: 10%;
+}
+
+#lineHeader > h1 {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.statusIndicatorContainer{
+  padding: 5%;
+}
+
+.statusHeadline{
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.6em;
+}
