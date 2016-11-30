@@ -7,8 +7,9 @@ import './LineStatus.css';
 
 class FeedbackContainer extends Component {
   render() {
+    // dont like the fact that this is declared like this, but i can't think of another way. 
+    // CSS doesn't appear to talk to the SVG icon...
     const styles = {
-      containerSize: document.getElementsByClassName("thumbWrapper").offsetHeight,
       lrgIcon: {
         height: 50,
         width: 50
