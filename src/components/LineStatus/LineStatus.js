@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
-import LineHeader from './LineHeader.js';
-import StatusIndicator from './StatusIndicator.js';
+import LineHeader from './LineHeader';
+import StatusIndicator from './StatusIndicator';
+import FeedbackContainer from './FeedbackContainer';
 
 import './LineStatus.css'
 
@@ -18,14 +19,15 @@ var lineData = {
 class LineStatus extends Component {
   render() {
     return (
-      <div>
+      <Paper>
         <LineHeader name={lineData.name} color={lineData.color}/>
         <Paper zDepth={2} id="statusContainer">
           <StatusIndicator status={lineData.currentStatus} type="current" />
           <Divider/>
           <StatusIndicator status={lineData.historicStatus} type="historic" />
         </Paper>
-      </div>
+          <FeedbackContainer />
+      </Paper>
     );
   }
 }

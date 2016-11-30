@@ -16,7 +16,13 @@
   to { transform: rotate(360deg); }
 }
 
+body {
+  background-color: #FDFDFD;
+}
+
 #appContainer {
   text-align: center;
   padding: 0;
+  max-width: 600px;
+  background-color: white;
 }
