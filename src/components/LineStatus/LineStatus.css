@@ -1,0 +1,37 @@
+#lineHeader {
+  color: white;
+  background-color: rgb(0,152,216);
+  padding: 10%;
+}
+
+#lineHeader > h1 {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.statusIndicatorContainer {
+  padding: 6%;
+}
+
+.statusHeadline {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 1.8em;
+}
+
+
+.feedbackContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.individualFeedbackWrapper {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.thumbWrapper {
+  height: 75%;
+}

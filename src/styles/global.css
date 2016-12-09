@@ -1,0 +1,16 @@
+/* 
+DANGER!!! 
+
+THIS IS STYLING EVERY SINGLE LINK. 
+AS SOON AS YOU NEED A LINK TO BE UNDERLINED, SHOULD EXTRACT THIS OUT SOMEHOW
+
+*/
+a:link{
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited{
+  text-decoration: none;
+  color: inherit;
+}
