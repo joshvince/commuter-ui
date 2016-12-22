@@ -5,26 +5,41 @@ import LineHeader from './LineHeader';
 import StatusIndicator from './StatusIndicator';
 import FeedbackContainer from './FeedbackContainer';
 
+import Client from '../../Client.js';
+
 import './LineStatus.css'
 
-// TODO: Don't declare this here... it should be passed through some props somewhere...
-// or maybe this is state...
-var lineData = {
-  "name": "Victoria",
-  "currentStatus": "Good Service",
-  "historicStatus": "Some Problems",
-  "color": 'rgb(0,152,216)'
-}
+// TODO: How can i properly get the line data passed down to this component?
+// Perhaps everything Line-related should be wrapped in a container component?
+// This container component could then pass down appropriate data about all the lines
+
 
 class LineStatus extends Component {
+  constructor(props){
+    super(props)
+    this.state = {currentStatus: "", historicStatus: ""}
+  }
+
+// TODO: this feels pretty slow. There's noticable lag when loading this data.
+// Can this get sped up?
+
+  componentWillMount(){
+    Client.getLineData(this.props.params.lineName, (data)=>{
+      this.setState({
+        currentStatus: data.current,
+        historicStatus: data.lastHour
+      })
+    })
+  }
+
   render() {
     return (
       <Paper>
-        <LineHeader name={lineData.name} color={lineData.color}/>
+        <LineHeader name={this.props.params.lineName} color={this.props.color}/>
         <Paper zDepth={2} id="statusContainer">
-          <StatusIndicator status={lineData.currentStatus} type="current" />
+          <StatusIndicator status={this.state.currentStatus} type="current" />
           <Divider/>
-          <StatusIndicator status={lineData.historicStatus} type="historic" />
+          <StatusIndicator status={this.state.historicStatus} type="historic" />
         </Paper>
           <FeedbackContainer />
       </Paper>

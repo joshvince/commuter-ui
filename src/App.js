@@ -4,8 +4,8 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Nav from './nav/Nav';
-import './App.css';
+import Nav from './components/nav/Nav';
+import './styles/App.css';
 
 class App extends Component {
   render() {
