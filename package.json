@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "babel-preset-stage-1": "^6.16.0",
+    "chai": "^3.5.0",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
