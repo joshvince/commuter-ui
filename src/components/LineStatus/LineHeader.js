@@ -5,8 +5,8 @@ import './LineStatus.css';
 class LineHeader extends Component {
   render() {
     return (
-      <div id="lineHeader">
-        <h1>{this.props.name}<br/>Line</h1>
+      <div id="lineHeader" style={{backgroundColor: this.props.data.color}}>
+        <h1>{this.props.data.name}<br/>Line</h1>
       </div>
     );
   }

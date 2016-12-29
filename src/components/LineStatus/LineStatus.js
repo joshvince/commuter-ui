@@ -9,25 +9,24 @@ import Client from '../../Client.js';
 
 import './LineStatus.css'
 
-// TODO: How can i properly get the line data passed down to this component?
-// Perhaps everything Line-related should be wrapped in a container component?
-// This container component could then pass down appropriate data about all the lines
-
-
 class LineStatus extends Component {
   constructor(props){
     super(props)
-    this.state = {currentStatus: "", historicStatus: ""}
+    this.state = {data: {}, currentStatus: "", historicStatus: ""}
   }
 
 // TODO: this feels pretty slow. There's noticable lag when loading this data.
 // Can this get sped up?
 
   componentWillMount(){
-    Client.getLineData(this.props.params.lineName, (data)=>{
-      this.setState({
-        currentStatus: data.current,
-        historicStatus: data.lastHour
+    Client.getLineObjects((arr) => {
+      var curr = arr.find(obj=>{ return obj.id === this.props.params.lineId})
+      Client.getLineData(curr.id, (data) => {
+        this.setState({
+          data: curr,
+          currentStatus: data.current,
+          historicStatus: data.lastHour
+        })
       })
     })
   }
@@ -35,7 +34,7 @@ class LineStatus extends Component {
   render() {
     return (
       <Paper>
-        <LineHeader name={this.props.params.lineName} color={this.props.color}/>
+        <LineHeader data={this.state.data}/>
         <Paper zDepth={2} id="statusContainer">
           <StatusIndicator status={this.state.currentStatus} type="current" />
           <Divider/>
@@ -45,6 +44,7 @@ class LineStatus extends Component {
       </Paper>
     );
   }
+  
 }
 
 export default LineStatus;

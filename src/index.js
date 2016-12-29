@@ -11,8 +11,8 @@ ReactDOM.render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="lines" component={LineList} />
-      <Route path="lines/:lineName" component={LineStatus} />
+      <Route path="lines" component={LineList}/>
+      <Route path="lines/:lineId" component={LineStatus}/>
     </Route>
   </Router>
   ), document.getElementById('root')
