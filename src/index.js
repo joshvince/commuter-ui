@@ -1,19 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory} from 'react-router'
+import { Router, Route, IndexRoute, browserHistory} from 'react-router'
 import App from './App';
-import Home from './home/Home';
+import Home from './components/home/Home';
 import LineList from './components/LineList/LineList';
 import LineStatus from './components/LineStatus/LineStatus';
-import './index.css';
-
+import './styles/index.css';
 
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="lines" component={LineList} />
-      <Route path="lines/:lineName" component={LineStatus} />
+      <Route path="lines" component={LineList}/>
+      <Route path="lines/:lineId" component={LineStatus}/>
     </Route>
   </Router>
   ), document.getElementById('root')

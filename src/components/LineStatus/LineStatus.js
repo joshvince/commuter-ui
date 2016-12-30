@@ -5,31 +5,46 @@ import LineHeader from './LineHeader';
 import StatusIndicator from './StatusIndicator';
 import FeedbackContainer from './FeedbackContainer';
 
+import Client from '../../Client.js';
+
 import './LineStatus.css'
 
-// TODO: Don't declare this here... it should be passed through some props somewhere...
-// or maybe this is state...
-var lineData = {
-  "name": "Victoria",
-  "currentStatus": "Good Service",
-  "historicStatus": "Some Problems",
-  "color": 'rgb(0,152,216)'
-}
-
 class LineStatus extends Component {
+  constructor(props){
+    super(props)
+    this.state = {data: {}, currentStatus: "", historicStatus: ""}
+  }
+
+// TODO: this feels pretty slow. There's noticable lag when loading this data.
+// Can this get sped up?
+
+  componentWillMount(){
+    Client.getLineObjects((arr) => {
+      var curr = arr.find(obj=>{ return obj.id === this.props.params.lineId})
+      Client.getLineData(curr.id, (data) => {
+        this.setState({
+          data: curr,
+          currentStatus: data.current,
+          historicStatus: data.lastHour
+        })
+      })
+    })
+  }
+
   render() {
     return (
       <Paper>
-        <LineHeader name={lineData.name} color={lineData.color}/>
+        <LineHeader data={this.state.data}/>
         <Paper zDepth={2} id="statusContainer">
-          <StatusIndicator status={lineData.currentStatus} type="current" />
+          <StatusIndicator status={this.state.currentStatus} type="current" />
           <Divider/>
-          <StatusIndicator status={lineData.historicStatus} type="historic" />
+          <StatusIndicator status={this.state.historicStatus} type="historic" />
         </Paper>
           <FeedbackContainer />
       </Paper>
     );
   }
+  
 }
 
 export default LineStatus;

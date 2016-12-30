@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import { Link } from 'react-router';
 
-import '../styles/global.css'
+import '../../styles/global.css'
 
 class Nav extends Component {
   render() {
@@ -13,5 +13,3 @@ class Nav extends Component {
 }
 
 export default Nav;
-
-
