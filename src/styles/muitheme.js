@@ -1,5 +1,5 @@
 export default {
-  fontFamily: 'Roboto, sans-serif',
+  fontFamily: 'Nunito, sans-serif',
   palette: {
     primary1Color: '#294C5D',
     primary2Color: '#173B4D',
