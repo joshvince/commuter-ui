@@ -1,0 +1,12 @@
+.HomeWrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.HomeWrapper > a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
