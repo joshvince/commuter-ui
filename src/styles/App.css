@@ -17,12 +17,13 @@
 }
 
 body {
-  background-color: #FDFDFD;
+  background-color: grey;
 }
 
 #appContainer {
   text-align: center;
   padding: 0;
   max-width: 600px;
-  background-color: white;
+  background-color: #FDFDFD;
+  height: 100vh;
 }

@@ -1,11 +1,22 @@
 .FeatureCard {
   width:90%;
-  max-width: 280px;
-  font-size: 1.7em;
+  max-width: 290px;
+  font-size: 3em;
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   border-radius: 2px;
-  height: 140px;
+  height: 200px;
   margin: 10px;
+  padding: 20px;
+  background-color: white;
+}
+
+.inactive {
+  color: rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.2);
+}
+
+.FeatureCard > div > img {
+  height: 70px;
 }
