@@ -16,12 +16,4 @@ class FeatureCard extends Component {
   }
 }
 
-var test = `fjff`
-
-// return (
-//   <Card className="FeatureCard">
-//     <CardTitle title="Lines" />
-//   </Card>
-// );
-
 export default FeatureCard;
