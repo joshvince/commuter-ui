@@ -17,12 +17,20 @@
 }
 
 body {
-  background-color: #FDFDFD;
+  background-color: grey;
+
+}
+
+#root{
+  display: flex;
+  justify-content: center;
 }
 
 #appContainer {
   text-align: center;
   padding: 0;
+  width: 100%;
   max-width: 600px;
-  background-color: white;
+  background-color: #FDFDFD;
+  height: 100vh;
 }

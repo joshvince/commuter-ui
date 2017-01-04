@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory} from 'react-router'
 import App from './App';
-import Home from './components/home/Home';
+import Home from './components/Home/Home';
 import LineList from './components/LineList/LineList';
 import LineStatus from './components/LineStatus/LineStatus';
 import './styles/index.css';
