@@ -1,5 +1,5 @@
 /*
-CLIENT IS RESPONSIBLE FOR FETCHING DATA FROM THE COMMUTER BACKEND SERVER
+CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
 
 var TflColors = require('./styles/TflColors.js');
@@ -30,7 +30,13 @@ function addColors(array) {
   })
 }
 
+function sendFeedback(lineData, feedbackData) {
+  console.log(feedbackData)
+  console.log(lineData)
+}
+
 module.exports = {
   getLineData: getLineData,
-  getLineObjects: getLineObjects
+  getLineObjects: getLineObjects,
+  sendFeedback: sendFeedback
 }

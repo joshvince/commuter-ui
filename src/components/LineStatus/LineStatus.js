@@ -12,7 +12,7 @@ import './LineStatus.css'
 class LineStatus extends Component {
   constructor(props){
     super(props)
-    this.state = {data: {}, currentStatus: "", historicStatus: ""}
+    this.state = {lineData: {}, currentStatus: "", historicStatus: ""}
   }
 
 // TODO: this feels pretty slow. There's noticable lag when loading this data.
@@ -20,10 +20,10 @@ class LineStatus extends Component {
 
   componentWillMount(){
     Client.getLineObjects((arr) => {
-      var curr = arr.find(obj=>{ return obj.id === this.props.params.lineId})
-      Client.getLineData(curr.id, (data) => {
+      var lineData = arr.find(obj=>{ return obj.id === this.props.params.lineId})
+      Client.getLineData(lineData.id, (data) => {
         this.setState({
-          data: curr,
+          lineData: lineData,
           currentStatus: data.current,
           historicStatus: data.lastHour
         })
@@ -34,17 +34,16 @@ class LineStatus extends Component {
   render() {
     return (
       <Paper>
-        <LineHeader data={this.state.data}/>
+        <LineHeader lineData={this.state.lineData}/>
         <Paper zDepth={2} id="statusContainer">
           <StatusIndicator status={this.state.currentStatus} type="current" />
           <Divider/>
           <StatusIndicator status={this.state.historicStatus} type="historic" />
         </Paper>
-          <FeedbackContainer />
+        <FeedbackContainer lineData={this.state.lineData}/>
       </Paper>
     );
   }
-  
 }
 
 export default LineStatus;
