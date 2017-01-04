@@ -40,7 +40,7 @@ class LineStatus extends Component {
           <Divider/>
           <StatusIndicator status={this.state.historicStatus} type="historic" />
         </Paper>
-        <FeedbackContainer lineData={this.state.lineData}/>
+        <FeedbackContainer pageData={this.state}/>
       </Paper>
     );
   }

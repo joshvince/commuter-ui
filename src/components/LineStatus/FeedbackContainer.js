@@ -18,12 +18,12 @@ class FeedbackContainer extends Component {
 
   handlePositiveFeedback() {
     this.setState({open: true});
-    Client.sendFeedback(this.props.lineData, this.createFeedbackData(true))
+    Client.sendFeedback(this.props.pageData, this.createFeedbackData(true))
   }
 
   handleNegativeFeedback() {
     this.setState({open: true});
-    Client.sendFeedback(this.props.lineData, this.createFeedbackData(false))
+    Client.sendFeedback(this.props.pageData, this.createFeedbackData(false))
   }
 
   createFeedbackData(outcome) {

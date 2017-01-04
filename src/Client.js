@@ -30,9 +30,22 @@ function addColors(array) {
   })
 }
 
-function sendFeedback(lineData, feedbackData) {
-  console.log(feedbackData)
-  console.log(lineData)
+function sendFeedback(pageData, feedbackData) {
+  var url = `/feedback`
+  var data = {
+    line: pageData.lineData,
+    display: {
+      current: pageData.currentStatus,
+      historic: pageData.historicStatus
+    },
+    feedback: feedbackData
+  }
+  data = JSON.stringify(data)
+  console.log(data)
+  var XHR = new XMLHttpRequest();
+  XHR.open("POST", url, true)
+  XHR.setRequestHeader("Content-Type", "application/json");
+  XHR.send(data);
 }
 
 module.exports = {
