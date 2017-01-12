@@ -25,7 +25,8 @@ class LineStatus extends Component {
         this.setState({
           lineData: lineData,
           currentStatus: data.current,
-          historicStatus: data.lastHour
+          historicStatus: data.lastHour,
+          rawResponse: data.raw
         })
       })
     })
