@@ -1,11 +1,13 @@
 /*
 CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
+const commuterUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
 
 var TflColors = require('./styles/TflColors.js');
 
 function getLineData(id, callback) {
-  return fetch(`/lines/${id}`, {
+  console.log(`tried to call: ${commuterUrl}/lines/${id}`)
+  return fetch(`${commuterUrl}/lines/${id}`, {
     accept: 'application/json'
   }).then(parseJSON)
     .then(callback)
@@ -16,11 +18,15 @@ function parseJSON(response) {
 }
 
 function getLineObjects(callback) {
-  return fetch(`/lines`, {
+  console.log(`tried to call: ${commuterUrl}/lines`)
+  return fetch(`${commuterUrl}/lines`, {
     accept: 'application/json'
   }).then(parseJSON)
     .then(addColors)
     .then(callback)
+    .catch(error => {
+      console.log(error)
+    })
 }
 
 function addColors(array) {
@@ -38,7 +44,7 @@ with this data as JSON. It doesn't currently care about the reply.
 */
 
 function sendFeedback(pageData, feedbackData) {
-  var url = `/lines/feedback`
+  var url = `${commuterUrl}/lines/feedback`
   var data = {
     line: pageData.lineData,
     display: {
