@@ -1,7 +1,8 @@
 /*
 CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
-const commuterUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
+// const commuterUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
+const commuterUrl = 'http://localhost:3001'
 
 var TflColors = require('./styles/TflColors.js');
 
