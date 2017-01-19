@@ -3,24 +3,34 @@ import React, {Component} from 'react';
 class StationSelector extends Component {
   constructor(props){
     super(props)
-    this.setStation = this.setStation.bind(this)
+    this.state = {value: ''};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  setStation(e) {
+  handleChange(e) {
     this.setState({
-      station: e.target.value
+      value: e.target.value
     })
   }
-  render() {
 
+  handleSubmit(e) {
+    alert('station was: ' + this.state.value);
+    e.preventDefault();
+  }
+
+  render() {
     return (
       <div>
-        <input list="station" autoFocus onChange={this.setStation}></input>
-        <datalist id="station">
-          {this.props.stationList.map((station, i) => {
-            return <option value={station} key={i}/>
-          })}
-        </datalist>
+        <form onSubmit={this.handleSubmit}>
+          <input list="station" autoFocus ></input>
+          <input type="submit" value="Submit"></input>
+          <datalist id="station">
+            {this.props.stationList.map((station, i) => {
+              return <option value={station} key={i}/>
+            })}
+          </datalist>
+        </form>
       </div>
     )
   }

@@ -6,7 +6,7 @@ class StationStatus extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      station: "HINTHERE",
+      station: null,
       lines: null,
       directions: null
     }
@@ -19,6 +19,7 @@ class StationStatus extends Component {
       <div>
         <StationSelector stationList={stationList} />
         {this.state.station}
+        "hit ther"
       </div>
 
     )
