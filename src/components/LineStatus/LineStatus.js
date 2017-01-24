@@ -12,7 +12,12 @@ import './LineStatus.css'
 class LineStatus extends Component {
   constructor(props){
     super(props)
-    this.state = {lineData: {}, currentStatus: "", historicStatus: ""}
+    this.state = {
+      lineData: {},
+      currentStatus: "",
+      historicStatus: "",
+      message: ""
+    }
   }
 
 // TODO: this feels pretty slow. There's noticable lag when loading this data.
@@ -26,7 +31,8 @@ class LineStatus extends Component {
           lineData: lineData,
           currentStatus: data.current,
           historicStatus: data.lastHour,
-          rawResponse: data.raw
+          rawResponse: data.raw,
+          message: data.message
         })
       })
     })
@@ -35,7 +41,7 @@ class LineStatus extends Component {
   render() {
     return (
       <Paper>
-        <LineHeader lineData={this.state.lineData}/>
+        <LineHeader lineData={this.state.lineData} message={this.state.message}/>
         <Paper zDepth={2} id="statusContainer">
           <StatusIndicator status={this.state.currentStatus} type="current" />
           <Divider/>

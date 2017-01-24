@@ -1,11 +1,15 @@
 #lineHeader {
   color: white;
-  padding: 10%;
+  padding: 4%;
 }
 
 #lineHeader > h1 {
-  margin: 0;
-  line-height: 1.6;
+  /*margin: 0;*/
+  line-height: 1.3;
+}
+
+#lineHeader > h3 {
+  line-height: 1.3;
 }
 
 .statusIndicatorContainer {
@@ -14,8 +18,8 @@
 
 .statusHeadline {
   font-weight: 600;
-  font-size: 1.8em;
-  line-height: 1.8em;
+  font-size: 1.4em;
+  line-height: 1.3em;
 }
 
 
