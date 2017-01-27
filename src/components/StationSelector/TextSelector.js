@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 
 class TextSelector extends Component {
@@ -10,14 +10,16 @@ class TextSelector extends Component {
     return (
       <div>
         <AutoComplete
-          hintText="Select a station"
+          hintText="Enter station name"
+          maxSearchResults={6}
           filter={AutoComplete.caseInsensitiveFilter}
-          dataSource={this.props.list}
+          dataSource={this.props.dataSource}
           onNewRequest={this.handleNewRequest.bind(this)}
         />
       </div>
     )
   }
+
 }
 
 export default TextSelector;
