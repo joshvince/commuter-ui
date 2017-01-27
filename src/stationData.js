@@ -10,7 +10,7 @@ exports.data = function(){
     "Waterloo": {
       "Northern": ["Northbound", "Southbound"],
       "Bakerloo": ["Northbound", "Southbound"],
-      "Waterloo and City": ["Eastbound"],
+      "Waterloo & City": ["Eastbound"],
       "Jubilee": ["Eastbound", "Westbound"]
     }
   }
