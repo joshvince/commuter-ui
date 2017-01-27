@@ -1,15 +1,24 @@
 import React, {Component} from 'react';
+import Chip from 'material-ui/Chip';
 import Stations from '../../stationData';
 import Client from '../../Client.js';
+
+import TextSelector from './TextSelector';
+import LineChips from './LineChips';
+import DirectionChips from './DirectionChips';
+
+import './styles.css';
 
 class StationStatus extends Component {
   constructor(props) {
     super(props)
-    this.setStation = this.setStation.bind(this);
     this.state = {
-      station: "none",
+      stationSelected: '',
+      lineSelected: '',
+      directionSelected: '',
       lines: [],
-      directions: null
+      directions: ["Northbound", "Southbound"],
+      stationData: Stations.data()
     }
   }
 
@@ -21,60 +30,70 @@ class StationStatus extends Component {
     })
   }
 
-  setStation(e) {
+  setStation(val) {
     this.setState({
-      station: e.target.value
+      stationSelected: val
     })
   }
 
-  findActiveLine(stationObj, thisLine){
-    var lineList = Object.keys(stationObj);
-    return lineList.includes(thisLine.name) ? thisLine.color : 'grey'
-    // if the name of the line object is present in the keys of the object
-    // make the line background be obj.color.
-    // otherwise, grey
+  setLine(val){
+    this.setState({
+      lineSelected: val
+    })
   }
+
+  setDirection(val){
+    this.setState({
+      directionSelected: val
+    })
+  }
+
+  // findActiveLine(stationObj, thisLine){
+  //   if (typeof stationObj === 'undefined') {
+  //     return '#62808F'
+  //   }
+  //   else {
+  //     var lineList = Object.keys(stationObj);
+  //     return lineList.includes(thisLine.name) ? thisLine.color : '#62808F'
+  //   }
+  //
+  // }
 
   render()  {
-    var stationData = Stations.data()
-    var stationList = Object.keys(stationData)
-    var lineList = this.state.lines.map(obj => {
-      var bg = this.findActiveLine(stationData[this.state.station], obj)
-      return (
-        <div key={obj.id} style={{
-          backgroundColor: bg,
-          color: 'white'
-        }}>
-          {obj.name}
-        </div>
-      )
-    })
+    // var stationMasterObj = Stations.data()
+    // var stationList = Object.keys(stationMasterObj)
+    // var validLines = (this.state.stationSelected === '') ?
+    // [] : stationList[this.state.stationSelected]
+    // var lineList = this.state.lines.map(obj => {
+    //   var bg = this.findActiveLine(stationData[this.state.station], obj)
+    //   return (
+    //     <Chip
+    //       style={{backgroundColor: bg, margin: 4}}
+    //       labelStyle={{color: 'white'}}
+    //       key={obj.id}
+    //     >
+    //       {obj.name}
+    //     </Chip>
+    //   )
+    // })
+    console.log(this.state)
+    var stationList = Object.keys(this.state.stationData)
     return (
       <div>
-<<<<<<< HEAD
-        <StationSelector stationList={stationList} />
-        {this.state.station}
-        "hit ther"
-=======
-        <div>
-          <input list="station" autoFocus onChange={this.setStation}></input>
-          <datalist id="station">
-            {stationList.map((station, i) => {
-              return <option value={station} key={i}/>
-            })}
-          </datalist>
-        </div>
-        {/* <div>
-          {
-          Object.keys(stationData[this.state.station]).map(line => {
-          return <div key={line}>{line} Line</div>
-          })
-          }
-        </div> */}
-        <div>
-          {lineList}
-        </div>
->>>>>>> 16bae15787f8841da53f94cea5c787a737cf309f
+        <TextSelector
+          list={stationList}
+          setStation={this.setStation.bind(this)}
+        />
+        <LineChips
+          lines={this.state.lines}
+          stationSelected={this.state.stationSelected}
+          stationData={this.state.stationData}
+          setLine={this.setLine.bind(this)}
+        />
+        <DirectionChips
+          setDirection={this.setDirection.bind(this)}
+          directions={this.state.directions}
+        />
       </div>
     )
   }
