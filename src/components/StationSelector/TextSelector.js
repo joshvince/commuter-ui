@@ -7,14 +7,19 @@ class TextSelector extends Component {
   }
 
   render(){
+    const styles = {
+      fontSize: '1.8em'
+    }
     return (
       <div>
         <AutoComplete
-          hintText="Enter station name"
+          hintText={this.props.hint}
           maxSearchResults={6}
           filter={AutoComplete.caseInsensitiveFilter}
           dataSource={this.props.dataSource}
           onNewRequest={this.handleNewRequest.bind(this)}
+          inputStyle={styles}
+          hintStyle={styles}
         />
       </div>
     )

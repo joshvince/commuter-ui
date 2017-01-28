@@ -17,6 +17,10 @@ class OptionSelector extends Component {
   }
 
   render(){
+    var styles = {
+      fontSize: '1.5em',
+      textAlign: 'left'
+    }
     var menuItems = this.props.dataSource.map((str, i) => {
       return (
         <MenuItem key={i} value={str} primaryText={str}/>
@@ -30,6 +34,7 @@ class OptionSelector extends Component {
           hintText={this.props.hint}
           onChange={this.handleChange.bind(this)}
           value={this.state.value}
+          style={styles}
         >
           {menuItems}
         </SelectField>
