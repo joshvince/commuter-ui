@@ -2,13 +2,17 @@ import React,{Component} from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 
 class TextSelector extends Component {
-  handleNewRequest(value) {
-    this.props.setStation(value)
+  handleNewRequest(obj) {
+    this.props.setStation(obj)
   }
 
   render(){
-    const styles = {
+    let styles = {
       fontSize: '1.8em'
+    }
+    let dataSourceConfig = {
+      text: 'name',
+      value: 'id'
     }
     return (
       <div>
@@ -17,6 +21,7 @@ class TextSelector extends Component {
           maxSearchResults={6}
           filter={AutoComplete.caseInsensitiveFilter}
           dataSource={this.props.dataSource}
+          dataSourceConfig={dataSourceConfig}
           onNewRequest={this.handleNewRequest.bind(this)}
           inputStyle={styles}
           hintStyle={styles}

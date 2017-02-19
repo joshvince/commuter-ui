@@ -1,10 +1,44 @@
 /*
 CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
+// const choobUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
 const commuterUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
-// const commuterUrl = 'http://localhost:3001'
+const choobUrl = 'http://localhost:4000'
 
 var TflColors = require('./styles/TflColors.js');
+
+// STATIONS
+
+/*
+Fetches an array of every single station object from the backend service.
+These objects have name, id, and line data for each station served by the app.
+*/
+function getStationList(callback){
+  console.log(`tried to call: ${choobUrl}/stations`);
+  return fetch(`${choobUrl}/stations`, {
+    accept: 'application/json'
+  }).then(parseJSON)
+    .then(callback)
+    .catch(err => {
+      console.log(err);
+    })
+}
+
+// ARRIVALS
+
+function getArrivals(stationId, lineId, callback){
+  var url = `${choobUrl}/stations/${stationId}/${lineId}`
+  console.log(`calling: ${url}`);
+  return fetch(url, {
+    accept: 'application/json'
+  }).then(parseJSON)
+    .then(callback)
+    .catch(err => {
+      console.log(err)
+    })
+}
+
+// LINES
 
 function getLineData(id, callback) {
   console.log(`tried to call: ${commuterUrl}/lines/${id}`)
@@ -12,10 +46,6 @@ function getLineData(id, callback) {
     accept: 'application/json'
   }).then(parseJSON)
     .then(callback)
-}
-
-function parseJSON(response) {
-  return response.json();
 }
 
 function getLineObjects(callback) {
@@ -30,12 +60,7 @@ function getLineObjects(callback) {
     })
 }
 
-function addColors(array) {
-  return array.map(obj => {
-    obj.color = TflColors[obj.id];
-    return obj
-  })
-}
+// FEEDBACK
 
 /*
 When a user clicks on a feedback button, it sends along some data, such as the time,
@@ -63,8 +88,23 @@ function sendFeedback(pageData, feedbackData) {
   XHR.send(data);
 }
 
+// PRIVATE FUNCTIONS
+
+function parseJSON(response) {
+  return response.json();
+}
+
+function addColors(array) {
+  return array.map(obj => {
+    obj.color = TflColors[obj.id];
+    return obj
+  })
+}
+
 module.exports = {
   getLineData: getLineData,
   getLineObjects: getLineObjects,
+  getStationList: getStationList,
+  getArrivals: getArrivals,
   sendFeedback: sendFeedback
 }

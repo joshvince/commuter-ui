@@ -9,6 +9,7 @@ class OptionSelector extends Component {
       value: null
     }
   }
+
   handleChange(e,i,val){
     this.setState({
       value: val
@@ -21,12 +22,12 @@ class OptionSelector extends Component {
       fontSize: '1.5em',
       textAlign: 'left'
     }
-    var menuItems = this.props.dataSource.map((str, i) => {
-      return (
-        <MenuItem key={i} value={str} primaryText={str}/>
-      )
-    })
-    var isDisabled = (menuItems.length === 0) ? true : false
+    var src = this.props.dataSource
+    var menuItems = (src.length === 0) ? [] :
+      src.map((str, i) => {
+        return <MenuItem key={i} value={str} primaryText={str}/>
+      })
+    var isDisabled = (src.length === 0) ? true : false
     return (
       <div>
         <SelectField

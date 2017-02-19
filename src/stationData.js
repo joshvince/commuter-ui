@@ -15,3 +15,23 @@ exports.data = function(){
     }
   }
 }
+
+exports.data2 = function() {
+  return [
+    {
+      name: "Waterloo",
+      lines: ["northern", "bakerloo", "waterloo-city", "jubilee"],
+      id: "940GZZLUWLO"
+    },
+    {
+      name: "Tooting Bec",
+      lines: ["northern"],
+      id: "940GZZLUTBC"
+    },
+    {
+      name: "Victoria",
+      lines: ["victoria", "circle", "district"],
+      id: "940GZZLUVIC"
+    }
+  ]
+}
