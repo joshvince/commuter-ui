@@ -5,6 +5,7 @@ import App from './App';
 import Home from './components/Home/Home';
 import LineList from './components/LineList/LineList';
 import LineStatus from './components/LineStatus/LineStatus';
+import StationSelector from './components/StationSelector/StationSelector';
 import './styles/index.css';
 
 ReactDOM.render((
@@ -13,6 +14,7 @@ ReactDOM.render((
       <IndexRoute component={Home} />
       <Route path="lines" component={LineList}/>
       <Route path="lines/:lineId" component={LineStatus}/>
+      <Route path="stations" component={StationSelector}/>
     </Route>
   </Router>
   ), document.getElementById('root')
