@@ -16,6 +16,7 @@ function prettify(ids){
     {id: "district", pretty: "District"},
     {id: "hammersmith-city", pretty: "Hammersmith & City"},
     {id: "jubilee", pretty: "Jubilee"},
+    {id: "metropolitan", pretty: "Metropolitan"},
     {id: "northern", pretty: "Northern"},
     {id: "picadilly", pretty: "Picadilly"},
     {id: "victoria", pretty: "Victoria"},
