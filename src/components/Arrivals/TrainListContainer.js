@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import Train from './Train';
 
 class TrainListContainer extends Component {
   constructor(props){
@@ -22,9 +23,7 @@ class TrainListContainer extends Component {
         <Tabs value={this.state.value} onChange={this.handleChange}>
           <Tab label="inbound" value="inbound">
             <div>
-              <p>
-                A component called TrainListContainer should go here...
-              </p>
+              <Train arrivalTime={4} destination="Stratford" />
             </div>
           </Tab>
           <Tab label="OUTBOUND" value="outbound">
