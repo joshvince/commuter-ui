@@ -10,7 +10,8 @@ class Train extends Component {
     return(
       <div className="train-wrapper">
         <div className="arrival-time-wrapper">
-          {this.props.arrivalTime}<span style={{fontSize: 15}}>min</span>
+          <h1>{this.props.arrivalTime}</h1>min
+
         </div>
         <div className="destination-wrapper">
           {this.props.destination}

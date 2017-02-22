@@ -23,7 +23,7 @@ class TrainListContainer extends Component {
         <Tabs value={this.state.value} onChange={this.handleChange}>
           <Tab label="inbound" value="inbound">
             <div>
-              <Train arrivalTime={4} destination="Stratford" />
+              <Train arrivalTime={4} destination="Edgeware via Charing Cross" />
             </div>
           </Tab>
           <Tab label="OUTBOUND" value="outbound">
