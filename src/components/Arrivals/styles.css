@@ -1,8 +1,8 @@
 .train-wrapper {
   width: 98%;
-  border: solid black 1px;
   display: flex;
   flex-wrap: nowrap;
+  padding-bottom: 10px;
 }
 
 .train-wrapper > div {
@@ -16,7 +16,7 @@
 }
 
 .icon-wrapper > img {
-  max-width: 100%;
+  max-width: 65%;
   height: auto;
 }
 

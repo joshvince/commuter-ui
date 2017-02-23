@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import Train from './Train';
+import TrainList from './TrainList';
+
+import quarterStar from '../../img/stars/quarterstar.svg';
+import halfStar from '../../img/stars/halfstar.svg';
+import threeQuarterStar from '../../img/stars/threequarterstar.svg';
+import fullStar from '../../img/stars/fullstar.svg';
 
 class TrainListContainer extends Component {
   constructor(props){
@@ -18,12 +23,33 @@ class TrainListContainer extends Component {
   }
 
   render(){
+    var testList = [
+      {
+        destination: "Morden",
+        arrivalTime: 1,
+        starImg: quarterStar
+      },
+      {
+        destination: "Morden",
+        arrivalTime: 3,
+        starImg: quarterStar
+      },
+      {
+        destination: "Morden",
+        arrivalTime: 4,
+        starImg: threeQuarterStar
+      },
+    ]
     return(
       <div>
         <Tabs value={this.state.value} onChange={this.handleChange}>
           <Tab label="inbound" value="inbound">
             <div>
-              <Train arrivalTime={4} destination="Edgeware via Charing Cross" />
+              {/*
+                TODO: this should be a material-ui list with the stars as icons
+                and there should be a divider between each train
+              */}
+              <TrainList list={testList}/>
             </div>
           </Tab>
           <Tab label="OUTBOUND" value="outbound">
