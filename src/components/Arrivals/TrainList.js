@@ -39,7 +39,6 @@ class TrainList extends Component {
             arrivalTime={el.time_to_station}
             destination={el.destination.destination_name}
           />
-          <Divider />
         </ListItem>
 
       )
