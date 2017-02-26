@@ -1,9 +1,9 @@
 /*
 CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
-// const choobUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
 const commuterUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
-const choobUrl = 'http://localhost:4000'
+// const choobUrl = 'http://localhost:4000'
+const choobUrl = 'https://choob-service.herokuapp.com'
 
 var TflColors = require('./styles/TflColors.js');
 
