@@ -5,6 +5,7 @@ import TextSelector from './TextSelector';
 import OptionSelector from './OptionSelector';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
+import { Link } from 'react-router';
 import './styles.css';
 
 class StationSelector extends Component {
@@ -28,7 +29,7 @@ class StationSelector extends Component {
   }
 
   setStation(obj){
-    var lines = Lines.prettify(obj.lines)
+    var lines = Lines.returnObjects(obj.lines)
     this.setState({
       selectedStation: obj,
       lineList: lines
@@ -40,6 +41,11 @@ class StationSelector extends Component {
       selectedLine: id,
       ready: true
     })
+  }
+
+  buildUrl(stationObj, lineId){
+    var stationId = (stationObj === null) ? "" : stationObj.id
+    return `/arrivals/${stationId}/${lineId}`
   }
 
   render(){
@@ -56,12 +62,14 @@ class StationSelector extends Component {
             hint="On the..."
             onSelection={this.setLine.bind(this)}
           />
-          <RaisedButton
-            label="Go"
-            primary={true}
-            disabled={!this.state.ready}
-            fullWidth={true}
-          />
+          <Link to={this.buildUrl(this.state.selectedStation, this.state.selectedLine)}>
+            <RaisedButton
+              label="Go"
+              primary={true}
+              disabled={!this.state.ready}
+              fullWidth={true}
+            />
+          </Link>
         </Paper>
       </div>
     )

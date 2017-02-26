@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
 import {List, ListItem} from 'material-ui/List';
+import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
-
 import Train from './Train';
-import styles from './styles.css'
+
+import quarterStar from '../../img/stars/quarterstar.svg';
+import halfStar from '../../img/stars/halfstar.svg';
+import threeQuarterStar from '../../img/stars/threequarterstar.svg';
+import fullStar from '../../img/stars/fullstar.svg';
 
 class TrainList extends Component {
   constructor(props){
     super(props)
+    this.calculateStar = this.calculateStar.bind(this)
+  }
+
+  calculateStar(time){
+    if (time < 60) {
+      return fullStar
+    }
+    else if (time < 120) {
+      return threeQuarterStar
+    }
+    else if (time < 180) {
+      return halfStar
+    }
+    else {
+      return quarterStar
+    }
   }
 
   render(){
@@ -15,20 +35,22 @@ class TrainList extends Component {
       return(
         <ListItem key={i} disabled={true} style={{padding: 3}}>
           <Train
-            star={el.starImg}
-            arrivalTime={el.arrivalTime}
-            destination={el.destination}
+            star={this.calculateStar(el.interval)}
+            arrivalTime={el.time_to_station}
+            destination={el.destination.destination_name}
           />
           <Divider />
         </ListItem>
+
       )
     })
     return(
-      <div>
+      <Paper>
         <List>
+          <h3 className="list-header">{this.props.listName}</h3>
           {items}
         </List>
-      </div>
+      </Paper>
     )
   }
 

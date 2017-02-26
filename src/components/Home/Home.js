@@ -20,11 +20,11 @@ class Home extends Component {
             active={true}
           />
         </Link>
-        <Link>
+        <Link to="/arrivals">
           <FeatureCard
             featureName="Trains"
             imgSrc={trainsImg}
-            active={false}
+            active={true}
           />
         </Link>
       </div>
