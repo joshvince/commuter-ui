@@ -7,7 +7,7 @@ class StationHeader extends Component {
     return(
       <div className="station-header" style={{backgroundColor: color, color: 'white'}}>
         <h1>{this.props.stationName}</h1>
-        <h1>{this.props.lineName}</h1>
+        <h1>{this.props.lineName} Line</h1>
       </div>
     )
   }

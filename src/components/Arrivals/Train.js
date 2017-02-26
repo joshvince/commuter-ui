@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './styles.css'
+import './styles.css'
 import Paper from 'material-ui/Paper';
 
 class Train extends Component {
@@ -17,7 +17,7 @@ class Train extends Component {
         <div className="destination-wrapper">
           {this.props.destination}
         </div>
-        
+
       </Paper>
         )
   }
