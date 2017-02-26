@@ -15,9 +15,8 @@ ReactDOM.render((
       <IndexRoute component={Home} />
       <Route path="lines" component={LineList}/>
       <Route path="lines/:lineId" component={LineStatus}/>
-      <Route path="stations" component={StationSelector}/>
-      {/* test component during initial dev of the arrivals board */}
-      <Route path="arrivals" component={ArrivalsBoard}/>
+      <Route path="arrivals" component={StationSelector}/>
+      <Route path="arrivals/:stationId/:lineId" component={ArrivalsBoard}/>
     </Route>
   </Router>
   ), document.getElementById('root')
