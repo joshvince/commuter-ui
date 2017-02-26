@@ -1,12 +1,12 @@
 {
-  "main.css": "static/css/main.2db5828c.css",
-  "main.css.map": "static/css/main.2db5828c.css.map",
-  "main.js": "static/js/main.157945a1.js",
-  "main.js.map": "static/js/main.157945a1.js.map",
-  "static/media/fullstar.svg": "static/media/fullstar.8e079af8.svg",
-  "static/media/halfstar.svg": "static/media/halfstar.36941cde.svg",
+  "main.css": "static/css/main.882b34ec.css",
+  "main.css.map": "static/css/main.882b34ec.css.map",
+  "main.js": "static/js/main.567c529a.js",
+  "main.js.map": "static/js/main.567c529a.js.map",
+  "static/media/fullstar.svg": "static/media/fullstar.ab109eec.svg",
+  "static/media/halfstar.svg": "static/media/halfstar.e37b218e.svg",
   "static/media/linesicon.svg": "static/media/linesicon.770e4256.svg",
-  "static/media/quarterstar.svg": "static/media/quarterstar.4af92154.svg",
-  "static/media/threequarterstar.svg": "static/media/threequarterstar.1e3f7fe4.svg",
+  "static/media/quarterstar.svg": "static/media/quarterstar.04ddc1af.svg",
+  "static/media/threequarterstar.svg": "static/media/threequarterstar.5ce72882.svg",
   "static/media/trainsicon.svg": "static/media/trainsicon.f98f7ee4.svg"
 }
