@@ -46,7 +46,17 @@ class TrainList extends Component {
     return(
       <Paper>
         <List>
-          <h3 className="list-header">{this.props.listName}</h3>
+          <div className="train-wrapper col-head">
+            <div className="icon-wrapper">
+              Score
+            </div>
+            <div className="arrival-time-wrapper">
+              Arrives
+            </div>
+            <div className="destination-wrapper col-head">
+              Destination
+            </div>
+          </div>
           {items}
         </List>
       </Paper>
