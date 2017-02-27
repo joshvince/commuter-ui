@@ -2,9 +2,22 @@
 CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
 const commuterUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
-// const choobUrl = 'http://localhost:4000'
-const choobUrl = 'https://choob-service.herokuapp.com'
-
+// call the local backend if it's local dev or test, the real backend otherwise.
+function getChoobUrl(env){
+  if (env === 'development'){
+    return 'http://localhost:4000'
+  }
+  else if (env === 'test'){
+    return 'http://localhost:4000'
+  }
+  else if (env === 'production'){
+    return 'https://choob-service.herokuapp.com'
+  }
+  else {
+    return 'https://choob-service.herokuapp.com'
+  }
+}
+var choobUrl = getChoobUrl(process.env.NODE_ENV)
 var TflColors = require('./styles/TflColors.js');
 
 // STATIONS
