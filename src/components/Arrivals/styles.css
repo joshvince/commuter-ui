@@ -23,6 +23,7 @@
 
 .icon-wrapper {
   width: 20%;
+  text-align: center;
 }
 
 .icon-wrapper > img {
@@ -33,6 +34,7 @@
 .arrival-time-wrapper {
   width: 20%;
   font-size: 1em;
+  text-align: center;
 }
 
 .arrival-time-wrapper > h1 {
@@ -42,7 +44,7 @@
 .destination-wrapper {
   width: 60%;
   text-align: center;
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 .list-header {
@@ -51,4 +53,9 @@
   align-items: center;
   padding: 2px;
   margin: 0;
+}
+
+.col-head {
+  font-size: 1em;
+  padding: 0;
 }
