@@ -19,7 +19,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "production-start": "react-scripts build && node server.js"
+    "eject": "react-scripts eject"
   }
 }
