@@ -20,6 +20,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "production-start": "npm run build && node server.js"
+    "production-start": "react-scripts build && node server.js"
   }
 }
