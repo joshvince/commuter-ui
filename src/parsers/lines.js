@@ -4,38 +4,19 @@ are fit for a dropdown menu or page header.
 */
 
 
-/*
-NOTE: I've temporarily disabled some lines that didn't work to get this out sooner.
-
-*/
-// const prettyLineObjs = [
-//   {id: "bakerloo", pretty: "Bakerloo"},
-//   {id: "central", pretty: "Central"},
-//   {id: "circle", pretty: "Circle"},
-//   {id: "district", pretty: "District"},
-//   {id: "hammersmith-city", pretty: "Hammersmith & City"},
-//   {id: "jubilee", pretty: "Jubilee"},
-//   {id: "metropolitan", pretty: "Metropolitan"},
-//   {id: "northern", pretty: "Northern"},
-//   {id: "picadilly", pretty: "Picadilly"},
-//   {id: "victoria", pretty: "Victoria"},
-//   {id: "waterloo-city", pretty: "Waterloo & City"}
-// ]
-
-/*
-TODO: once the district line bug is fixed, you can uncomment out the above
-and remove the below.
-*/
 const prettyLineObjs = [
   {id: "bakerloo", pretty: "Bakerloo"},
   {id: "central", pretty: "Central"},
+  {id: "circle", pretty: "Circle"},
+  {id: "district", pretty: "District"},
+  {id: "hammersmith-city", pretty: "Hammersmith & City"},
   {id: "jubilee", pretty: "Jubilee"},
+  {id: "metropolitan", pretty: "Metropolitan"},
   {id: "northern", pretty: "Northern"},
   {id: "picadilly", pretty: "Picadilly"},
   {id: "victoria", pretty: "Victoria"},
   {id: "waterloo-city", pretty: "Waterloo & City"}
 ]
-
 
 /*
 Convert array of line ids into pretty strings.

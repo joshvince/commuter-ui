@@ -51,10 +51,6 @@ class StationSelector extends Component {
   render(){
     return (
       <div className='container'>
-        <div className='temp-header'>
-          <h3>Commuter is in beta</h3>
-          District, Circle, Metropolitan, and Hammersmith & City lines are not yet supported.
-        </div>
         <Paper className='inputWrapper'>
           <TextSelector
             hint="Travelling from..."
