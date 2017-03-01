@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-996 2637.5 416.2 395.8" style="enable-background:new -996 2637.5 416.2 395.8;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:#082534;stroke:#082534;stroke-width:10;stroke-miterlimit:10;}
+	.st2{display:inline;}
+	.st3{fill:#E2CD97;stroke:#E2CD97;stroke-miterlimit:10;}
+	.st4{fill:none;stroke:#082534;stroke-width:20;stroke-miterlimit:10;}
+	.st5{fill:none;}
+	.st6{fill:#092434;}
+	.st7{font-family:'Muli';}
+	.st8{font-size:500px;}
+</style>
+<g id="Layer_1" class="st0">
+	<g id="blackfull">
+		<polygon class="st1" points="-679.8,3004.1 -788.1,2946.8 -896.7,3003.5 -875.7,2882.8 -963.2,2797 -841.9,2779.8 -787.3,2670 
+			-733.4,2780.1 -612.2,2798 -700.2,2883.3 		"/>
+	</g>
+	<g id="quarter_full" class="st2">
+		<path class="st3" d="M-842.5,2978.2v-198.7c0-0.6,0.1-1.1,0.2-1.5l-0.6,1.2l-123.6,18l89.5,87.2l-21.1,123.1L-842.5,2978.2z"/>
+	</g>
+	<g id="half_full" class="st2">
+		<polygon class="st3" points="-787.9,2949.5 -787.9,2665.6 -842.8,2776.8 -967.8,2795 -877.3,2883.2 -898.7,3007.8 		"/>
+	</g>
+	<g id="three_quarter_full" class="st2">
+		<path class="st3" d="M-733.1,2778.9c0-0.4,0-0.8,0.1-1.2l-54.5-110.4l-55.3,112l-123.6,18l89.4,87.2l-21.1,123.1l110.5-58.1
+			l54.3,28.6L-733.1,2778.9L-733.1,2778.9z"/>
+	</g>
+	<g id="Layer_6" class="st2">
+		<polygon class="st3" points="-788.2,2666.3 -732.6,2779.1 -608.1,2797.2 -698.2,2884.9 -676.9,3008.9 -788.2,2950.3 
+			-899.5,3008.9 -878.3,2884.9 -968.3,2797.2 -843.9,2779.1 		"/>
+	</g>
+	<g id="outline2" class="st2">
+		<polygon class="st4" points="-787.9,2660 -730.2,2776.9 -601.3,2795.6 -694.6,2886.6 -672.6,3015 -787.9,2954.4 -903.2,3015 
+			-881.2,2886.6 -974.5,2795.6 -845.6,2776.9 		"/>
+	</g>
+</g>
+<g id="Layer_2">
+	<rect x="-919" y="2652.5" class="st5" width="256" height="395.8"/>
+	<text transform="matrix(1 0 0 1 -919 3016.9463)" class="st6 st7 st8">?</text>
+</g>
+</svg>

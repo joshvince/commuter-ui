@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import Train from './Train';
 
 import quarterStar from '../../img/stars/quarterstar.svg';
 import halfStar from '../../img/stars/halfstar.svg';
 import threeQuarterStar from '../../img/stars/threequarterstar.svg';
 import fullStar from '../../img/stars/fullstar.svg';
+import questionMark from '../../img/questionmark.svg';
 
 class TrainList extends Component {
   constructor(props){
@@ -32,10 +32,11 @@ class TrainList extends Component {
 
   render(){
     var items = this.props.list.map((el, i) => {
+      var icon = (i === 0) ? questionMark : this.calculateStar(el.interval)
       return(
         <ListItem key={i} disabled={true} style={{padding: 3}}>
           <Train
-            star={this.calculateStar(el.interval)}
+            star={icon}
             arrivalTime={el.time_to_station}
             destination={el.destination.destination_name}
           />
@@ -47,15 +48,9 @@ class TrainList extends Component {
       <Paper>
         <List>
           <div className="train-wrapper col-head">
-            <div className="icon-wrapper">
-              Score
-            </div>
-            <div className="arrival-time-wrapper">
-              Arrives
-            </div>
-            <div className="destination-wrapper col-head">
-              Destination
-            </div>
+            <div className="icon-wrapper">Score</div>
+            <div className="arrival-time-wrapper">Arrives</div>
+            <div className="destination-wrapper col-head">Destination</div>
           </div>
           {items}
         </List>
