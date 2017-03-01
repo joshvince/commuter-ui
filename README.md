@@ -1,9 +1,10 @@
-# Commuter Web App
+# Choobio Web App
 
-This app uses the [Commuter service](https://www.github.com/joshvince/commuter)
-to provide additional data about the London Underground.  
+This is a web app designed to provide additional data about the London Underground.  
 
-Currently, this app provides a summary of the last hour's service statuses for each Tube line. The Trains feature, which will assign a score to trains based on how quiet they are, is in development.  
+Currently, this app provides a summary of the last hour's service statuses for each Tube line. It also allows you to see live arrivals from any tube station, and rates trains based on the interval between them.
+
+It's written in React. The backend services it draws data from are written in Node and Elixir.
 
 ## To install this app
 - Clone this repo
