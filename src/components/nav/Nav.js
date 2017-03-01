@@ -7,7 +7,7 @@ import '../../styles/global.css'
 class Nav extends Component {
   render() {
     return (
-      <AppBar title={<Link to="/">Commuter</Link>} iconStyleLeft={{display: "none"}} />
+      <AppBar title={<Link to="/">Choobio</Link>} iconStyleLeft={{display: "none"}} />
     );
   }
 }

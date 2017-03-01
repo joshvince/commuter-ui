@@ -29,14 +29,14 @@ class Info extends Component {
       <div>
         <RaisedButton label="About" onTouchTap={this.handleOpen} />
         <Dialog
-          title="About Commuter"
+          title="About Choobio"
           actions={actions}
           modal={false}
           open={this.state.open}
           onRequestClose={this.handleClose}
         >
-          Commuter helps you be smarter on the Tube. <br/>
-          See the last hour's status for any tube line, with more to come soon!
+          Choobio helps you be smarter on the Tube. <br/>
+          See the last hour's status for any tube line, and get scores for trains!
         </Dialog>
       </div>
     )
