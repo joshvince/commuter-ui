@@ -28,12 +28,11 @@ setInterval(function(){
         body += d
       });
       response.on('end', function(){
-        var parsed = JSON.stringify(body)
-        console.log(parsed);
+        return body
       })
     }
   )
-},600000)
+},1800000)
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`)
