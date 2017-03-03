@@ -13,7 +13,7 @@ const prettyLineObjs = [
   {id: "jubilee", pretty: "Jubilee"},
   {id: "metropolitan", pretty: "Metropolitan"},
   {id: "northern", pretty: "Northern"},
-  {id: "picadilly", pretty: "Picadilly"},
+  {id: "piccadilly", pretty: "Piccadilly"},
   {id: "victoria", pretty: "Victoria"},
   {id: "waterloo-city", pretty: "Waterloo & City"}
 ]
