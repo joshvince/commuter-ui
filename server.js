@@ -17,23 +17,22 @@ asleep...
 
 When this gets deployed properly, it can be removed. Yay AWS!
 */
-setInterval(function(){
-  return http.get(
-    {
-      host: 'choob-service.herokuapp.com',
-      path: '/'
-    }, function(response){
-      var body = ''
-      response.on('data', function(d){
-        body += d
-      });
-      response.on('end', function(){
-        var parsed = JSON.stringify(body)
-        console.log(parsed);
-      })
-    }
-  )
-},600000)
+// setInterval(function(){
+//   return http.get(
+//     {
+//       host: 'choob-service.herokuapp.com',
+//       path: '/'
+//     }, function(response){
+//       var body = ''
+//       response.on('data', function(d){
+//         body += d
+//       });
+//       response.on('end', function(){
+//         return body
+//       })
+//     }
+//   )
+// },1800000)
 
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`)
