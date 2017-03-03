@@ -23,18 +23,17 @@ class TrainListContainer extends Component {
   }
 
   render(){
+    console.log(`inbound list: \n ${JSON.stringify(this.props.inboundList)}`)
     return(
       <div>
         <Tabs value={this.state.selected} onChange={this.handleChange}>
-          <Tab label="inbound" value="inbound">
+          <Tab label={this.props.inboundName} value="inbound">
             <div>
-              {/* <TrainList listName="Best Train" list={[]}/> */}
               <TrainList listName="All Trains" list={this.props.inboundList}/>
             </div>
           </Tab>
-          <Tab label="OUTBOUND" value="outbound">
+          <Tab label={this.props.outboundName} value="outbound">
             <div>
-              {/* <TrainList listName="Best Train" list={[]} /> */}
               <TrainList listName="All Trains" list={this.props.outboundList}/>
             </div>
           </Tab>

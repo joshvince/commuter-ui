@@ -10,7 +10,9 @@ class ArrivalsBoard extends Component {
     this.state = {
       stationData: {},
       inboundArrivals: [],
+      inboundName: "inbound",
       outboundArrivals: [],
+      outboundName: "outbound",
       stationName: "",
       lineName: ""
     }
@@ -22,8 +24,10 @@ class ArrivalsBoard extends Component {
     Client.getArrivals(stationId, lineId).then(data => {
       this.setState({
         stationData: data,
-        inboundArrivals: data.arrivals.inbound,
-        outboundArrivals: data.arrivals.outbound,
+        inboundArrivals: data.arrivals.inbound.trains,
+        inboundName: data.arrivals.inbound.name,
+        outboundArrivals: data.arrivals.outbound.trains,
+        outboundName: data.arrivals.outbound.name,
         stationName: data.station_name,
         lineName: Lines.prettify(data.line_id)
       })
@@ -39,7 +43,9 @@ class ArrivalsBoard extends Component {
         />
         <TrainListContainer
           inboundList={this.state.inboundArrivals}
+          inboundName={this.state.inboundName}
           outboundList={this.state.outboundArrivals}
+          outboundName={this.state.outboundName}
         />
       </div>
     )
