@@ -1,23 +1,8 @@
 /*
 CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
-const commuterUrl = 'http://commuter-dev.eu-west-1.elasticbeanstalk.com'
-// call the local backend if it's local dev or test, the real backend otherwise.
-function getChoobUrl(env){
-  if (env === 'development'){
-    return 'http://localhost:4000'
-  }
-  else if (env === 'test'){
-    return 'http://localhost:4000'
-  }
-  else if (env === 'production'){
-    return 'https://choob-service.herokuapp.com'
-  }
-  else {
-    return 'https://choob-service.herokuapp.com'
-  }
-}
-var choobUrl = getChoobUrl(process.env.NODE_ENV)
+const linesUrl = 'http://lines.choob.io'
+var choobUrl = 'https://choob-service.herokuapp.com'
 var TflColors = require('./styles/TflColors.js');
 
 // STATIONS
@@ -54,16 +39,16 @@ function getArrivals(stationId, lineId, callback){
 // LINES
 
 function getLineData(id, callback) {
-  console.log(`tried to call: ${commuterUrl}/lines/${id}`)
-  return fetch(`${commuterUrl}/lines/${id}`, {
+  console.log(`tried to call: ${linesUrl}/lines/${id}`)
+  return fetch(`${linesUrl}/lines/${id}`, {
     accept: 'application/json'
   }).then(parseJSON)
     .then(callback)
 }
 
 function getLineObjects(callback) {
-  console.log(`tried to call: ${commuterUrl}/lines`)
-  return fetch(`${commuterUrl}/lines`, {
+  console.log(`tried to call: ${linesUrl}/lines`)
+  return fetch(`${linesUrl}/lines`, {
     accept: 'application/json'
   }).then(parseJSON)
     .then(addColors)
@@ -83,7 +68,7 @@ with this data as JSON. It doesn't currently care about the reply.
 */
 
 function sendFeedback(pageData, feedbackData) {
-  var url = `${commuterUrl}/lines/feedback`
+  var url = `${linesUrl}/lines/feedback`
   var data = {
     line: pageData.lineData,
     display: {

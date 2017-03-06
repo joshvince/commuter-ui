@@ -23,7 +23,6 @@ class TrainListContainer extends Component {
   }
 
   render(){
-    console.log(`inbound list: \n ${JSON.stringify(this.props.inboundList)}`)
     return(
       <div>
         <Tabs value={this.state.selected} onChange={this.handleChange}>
