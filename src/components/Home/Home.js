@@ -13,18 +13,18 @@ class Home extends Component {
     return (
       <div className="HomeWrapper">
         <Info />
-        <Link to="/lines">
-          <FeatureCard
-            featureName="Lines"
-            imgSrc={linesImg}
-            active={true}
-          />
-        </Link>
         <Link to="/arrivals">
           <FeatureCard
             featureName="Trains"
             imgSrc={trainsImg}
             active={true}
+          />
+        </Link>
+        <Link to="/lines">
+          <FeatureCard
+            featureName="Lines"
+            imgSrc={linesImg}
+            active={false}
           />
         </Link>
       </div>
