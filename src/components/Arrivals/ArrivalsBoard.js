@@ -3,6 +3,7 @@ import StationHeader from './StationHeader';
 import Client from '../../Client';
 import Lines from '../../parsers/lines';
 import TrainListContainer from './TrainListContainer';
+import CircularProgress from 'material-ui/CircularProgress';
 
 class ArrivalsBoard extends Component {
   constructor(props){
@@ -14,7 +15,8 @@ class ArrivalsBoard extends Component {
       outboundArrivals: [],
       outboundName: "outbound",
       stationName: "",
-      lineName: ""
+      lineName: "",
+      isLoading: true
     }
   }
 
@@ -29,12 +31,19 @@ class ArrivalsBoard extends Component {
         outboundArrivals: data.arrivals.outbound.trains,
         outboundName: data.arrivals.outbound.name,
         stationName: data.station_name,
-        lineName: Lines.prettify(data.line_id)
+        lineName: Lines.prettify(data.line_id),
+        isLoading: false
       })
     })
   }
+
   render(){
+    var loader =
+      <div className="loader-wrapper">
+        <CircularProgress size={80} thickness={7}/>
+      </div>
     return(
+      this.state.isLoading ? loader :
       <div>
         <StationHeader
           stationName={this.state.stationName}
