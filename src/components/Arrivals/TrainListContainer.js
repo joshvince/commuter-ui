@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import TrainList from './TrainList';
 
-import quarterStar from '../../img/stars/quarterstar.svg';
-import halfStar from '../../img/stars/halfstar.svg';
-import threeQuarterStar from '../../img/stars/threequarterstar.svg';
-import fullStar from '../../img/stars/fullstar.svg';
-
 class TrainListContainer extends Component {
   constructor(props){
     super(props)

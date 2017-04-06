@@ -67,3 +67,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.empty-train-list-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex-column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.empty-train-list-wrapper > img {
+  padding-top: 2rem;
+  max-width: 10%;
+  height: auto;
+}
