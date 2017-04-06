@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {List, ListItem} from 'material-ui/List';
 import Paper from 'material-ui/Paper';
 import Train from './Train';
+import EmptyTrainList from './EmptyTrainList';
 
 import quarterStar from '../../img/stars/quarterstar.svg';
 import halfStar from '../../img/stars/halfstar.svg';
@@ -31,7 +32,9 @@ class TrainList extends Component {
   }
 
   render(){
-    var items = this.props.list.map((el, i) => {
+    var listLength = this.props.list.length
+    var content = listLength === 0 ? <EmptyTrainList /> :
+      this.props.list.map((el, i) => {
       var icon = (i === 0) ? questionMark : this.calculateStar(el.interval)
       return(
         <ListItem key={i} disabled={true} style={{padding: 3}}>
@@ -52,7 +55,7 @@ class TrainList extends Component {
             <div className="arrival-time-wrapper">Arrives</div>
             <div className="destination-wrapper col-head">Destination</div>
           </div>
-          {items}
+          {content}
         </List>
       </Paper>
     )
