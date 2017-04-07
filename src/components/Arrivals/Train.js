@@ -1,24 +1,34 @@
 import React, { Component } from 'react';
 import './styles.css'
 import Paper from 'material-ui/Paper';
+import ArrivalTime from './ArrivalTime';
 
 class Train extends Component {
+	// constructor(props){
+	// 	super(props)
+	// 	this.calculateArrival = this.calculateArrival.bind(this)
+	// }
+	calculateArrival(timestamp) {
+		var arrival = new Date(Date.parse(timestamp))
+		var now = new Date()
+		var diff = arrival - now
+		return Math.round((diff / 1000) / 60)
+	}
+
   render(){
-    let due = (this.props.arrivalTime > 1)
+		let arrival = this.calculateArrival(this.props.arrivalTime)
+    let due = (arrival < 1)
     return(
       <Paper className="train-wrapper">
         <div className="icon-wrapper">
           <img src={this.props.star} alt="star"></img>
         </div>
-        <div className="arrival-time-wrapper">
-          {due ? <h1>{this.props.arrivalTime}</h1> : <h1>Due</h1>}
-          {due ? <p>min</p> : null}
-        </div>
+				<ArrivalTime due={due} time={arrival} />
         <div className="destination-wrapper">
           {this.props.destination}
         </div>
       </Paper>
-        )
+    )
   }
 }
 

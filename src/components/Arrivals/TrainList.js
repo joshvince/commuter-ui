@@ -17,6 +17,7 @@ class TrainList extends Component {
       trainList: this.props.list
     }
     this.calculateStar = this.calculateStar.bind(this)
+		this.isInTheFuture = this.isInTheFuture.bind(this)
     this.tick = this.tick.bind(this)
   }
 
@@ -51,20 +52,13 @@ class TrainList extends Component {
     }
   }
 
+	isInTheFuture(timestamp) {
+		var arrival = new Date(Date.parse(timestamp))
+		var now = new Date()
+		return now < arrival
+	}
+
   render(){
-    console.log("I RE-RENDERED EVERYTHING!!!");
-    // Check that the train is still due to arrive in the future
-    function isInTheFuture(arrivalString) {
-      var arrival = new Date(Date.parse(arrivalString))
-      var now = new Date()
-      return now < arrival
-    }
-    function calculateArrival(arrivalString) {
-      var arrival = new Date(Date.parse(arrivalString))
-      var now = new Date()
-      var diff = arrival - now
-      return Math.floor((diff / 1000) / 60)
-    }
     var content = null;
     // If the list is empty, there are no trains and you should display a message.
     if (this.props.list.length === 0) {
@@ -73,7 +67,9 @@ class TrainList extends Component {
     // Otherwise, display a train component for each object
     else {
       // we only want trains who are still due to arrive in the future
-      var trainList = this.state.trainList.filter(obj => isInTheFuture(obj.arrival_time));
+      var trainList = this.state.trainList.filter(obj =>
+				this.isInTheFuture(obj.arrival_time)
+			);
       // if there were no trains left in the future, then display a message
       if (trainList.length === 0) {
         content = <EmptyTrainList />
@@ -82,12 +78,12 @@ class TrainList extends Component {
         // for each of the trains, render a List item with a train component
         content = trainList.map((obj, i) => {
           var icon = (i === 0) ? questionMark : this.calculateStar(obj.interval)
-          var arrivalMins = calculateArrival(obj.arrival_time)
+          // var arrivalMins = this.calculateArrival(obj.arrival_time)
           return(
             <ListItem key={i} disabled={true} style={{padding: 3}}>
               <Train
                 star={icon}
-                arrivalTime={arrivalMins}
+                arrivalTime={obj.arrival_time}
                 destination={obj.destination.destination_name}
               />
             </ListItem>
