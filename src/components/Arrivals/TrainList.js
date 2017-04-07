@@ -8,7 +8,6 @@ import quarterStar from '../../img/stars/quarterstar.svg';
 import halfStar from '../../img/stars/halfstar.svg';
 import threeQuarterStar from '../../img/stars/threequarterstar.svg';
 import fullStar from '../../img/stars/fullstar.svg';
-import questionMark from '../../img/questionmark.svg';
 
 class TrainList extends Component {
   constructor(props){
@@ -61,7 +60,7 @@ class TrainList extends Component {
   render(){
     var content = null;
     // If the list is empty, there are no trains and you should display a message.
-    if (this.props.list.length === 0) {
+    if (this.state.trainList.length === 0) {
       content = <EmptyTrainList />
     }
     // Otherwise, display a train component for each object
@@ -77,12 +76,10 @@ class TrainList extends Component {
       else {
         // for each of the trains, render a List item with a train component
         content = trainList.map((obj, i) => {
-          var icon = (i === 0) ? questionMark : this.calculateStar(obj.interval)
-          // var arrivalMins = this.calculateArrival(obj.arrival_time)
           return(
             <ListItem key={i} disabled={true} style={{padding: 3}}>
               <Train
-                star={icon}
+                star={this.calculateStar(obj.interval)}
                 arrivalTime={obj.arrival_time}
                 destination={obj.destination.destination_name}
               />
