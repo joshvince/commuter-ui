@@ -17,7 +17,7 @@ class TrainList extends Component {
       trainList: this.props.list
     }
     this.calculateStar = this.calculateStar.bind(this)
-		this.isInTheFuture = this.isInTheFuture.bind(this)
+    this.isInTheFuture = this.isInTheFuture.bind(this)
     this.tick = this.tick.bind(this)
   }
 
@@ -52,11 +52,11 @@ class TrainList extends Component {
     }
   }
 
-	isInTheFuture(timestamp) {
-		var arrival = new Date(Date.parse(timestamp))
-		var now = new Date()
-		return now < arrival
-	}
+  isInTheFuture(timestamp) {
+    var arrival = new Date(Date.parse(timestamp))
+    var now = new Date()
+    return now < arrival
+  }
 
   render(){
     var content = null;
@@ -68,8 +68,8 @@ class TrainList extends Component {
     else {
       // we only want trains who are still due to arrive in the future
       var trainList = this.state.trainList.filter(obj =>
-				this.isInTheFuture(obj.arrival_time)
-			);
+        this.isInTheFuture(obj.arrival_time)
+      );
       // if there were no trains left in the future, then display a message
       if (trainList.length === 0) {
         content = <EmptyTrainList />
