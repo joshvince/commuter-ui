@@ -20,13 +20,6 @@ class Home extends Component {
             active={true}
           />
         </Link>
-        <Link to="/lines">
-          <FeatureCard
-            featureName="Lines"
-            imgSrc={linesImg}
-            active={false}
-          />
-        </Link>
       </div>
     );
   }
