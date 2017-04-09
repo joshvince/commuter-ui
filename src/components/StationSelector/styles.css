@@ -3,14 +3,26 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding-top: 5px;
 }
 
-.inputWrapper {
+.inputWrapper, .item-wrapper {
   padding: 15px;
   width: 90%;
   max-width:90%;
+  margin: 15px;
 }
 
 .inputWrapper > div {
   margin: 10px 0 10px;
+}
+
+.item-wrapper {
+  padding: 10px;
+  font-size: 1.3rem;
+  z-index: 0;
+}
+
+.item-wrapper > div {
+  margin-top: 5px;
 }

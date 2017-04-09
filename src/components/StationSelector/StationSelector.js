@@ -1,23 +1,28 @@
 import React,{Component} from 'react';
 import Client from '../../Client.js';
+import Storage from './storageApi.js';
 import Lines from '../../parsers/lines.js';
 import TextSelector from './TextSelector';
 import OptionSelector from './OptionSelector';
+import StationHistory from './StationHistory';
+import TflColors from '../../styles/TflColors';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
-import { Link } from 'react-router';
 import './styles.css';
 
 class StationSelector extends Component {
   constructor(props) {
     super(props)
+    var stationHistory = Storage.get('stationHistory')
     this.state = {
       stationList: [],
       lineList: [],
       selectedStation: null,
       selectedLine: null,
+      stationHistory: stationHistory,
       ready: false
     }
+    this.addSelectionToHistory = this.addSelectionToHistory.bind(this)
   }
 
   componentWillMount(){
@@ -48,6 +53,16 @@ class StationSelector extends Component {
     return `/arrivals/${stationId}/${lineId}`
   }
 
+  addSelectionToHistory(){
+    if (this.state.selectedStation && this.state.selectedLine) {
+      let data = {
+        station: this.state.selectedStation,
+        line: this.state.selectedLine
+      }
+      Storage.put('stationHistory', data)
+    }
+  }
+
   render(){
     return (
       <div className='container'>
@@ -62,15 +77,17 @@ class StationSelector extends Component {
             hint="On the..."
             onSelection={this.setLine.bind(this)}
           />
-          <Link to={this.buildUrl(this.state.selectedStation, this.state.selectedLine)}>
-            <RaisedButton
-              label="Go"
-              primary={true}
-              disabled={!this.state.ready}
-              fullWidth={true}
-            />
-          </Link>
+          <RaisedButton
+            label="Go"
+            href={this.buildUrl(this.state.selectedStation, this.state.selectedLine)}
+            backgroundColor={TflColors[this.state.selectedLine]}
+            labelColor="white"
+            disabled={!this.state.ready}
+            fullWidth={true}
+            onClick={this.addSelectionToHistory}
+          />
         </Paper>
+        <StationHistory historyList={this.state.stationHistory} />
       </div>
     )
   }

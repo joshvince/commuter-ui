@@ -20,8 +20,8 @@ const prettyLineObjs = [
 
 /*
 Convert array of line ids into pretty strings.
-Expects an array of strings.
-Returns an array of strings.
+Expects a string of an array of strings.
+Returns a string or an array of strings.
 */
 function prettify(input){
   if (typeof input === 'string') {
