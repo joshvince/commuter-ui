@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import HistoryItem from './HistoryItem';
 import { Link } from 'react-router';
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 
 class stationHistory extends Component {
 
@@ -22,7 +21,6 @@ class stationHistory extends Component {
                     stationObject={obj.station}
                     lineData={obj.line}
                   />
-                  <Divider />
                 </Link>
 
               )

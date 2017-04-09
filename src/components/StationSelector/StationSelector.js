@@ -50,8 +50,13 @@ class StationSelector extends Component {
   }
 
   buildUrl(stationObj, lineId){
-    var stationId = (stationObj === null) ? "" : stationObj.id
-    return `/arrivals/${stationId}/${lineId}`
+    if (stationObj === null || lineId === null) {
+      return ""
+    }
+    else {
+      var stationId = (stationObj === null) ? "" : stationObj.id
+      return `/arrivals/${stationId}/${lineId}`
+    }
   }
 
   addSelectionToHistory(){
@@ -78,17 +83,16 @@ class StationSelector extends Component {
             hint="On the..."
             onSelection={this.setLine.bind(this)}
           />
-          <RaisedButton
-            label="Go"
-            backgroundColor={TflColors[this.state.selectedLine]}
-            labelColor="white"
-            disabled={!this.state.ready}
-            fullWidth={true}
-            onClick={this.addSelectionToHistory}
-            containerElement={
-              <Link to={this.buildUrl(this.state.selectedStation, this.state.selectedLine)} />
-            }
-          />
+          <Link to={this.buildUrl(this.state.selectedStation, this.state.selectedLine)}>
+            <RaisedButton
+              label="Go"
+              backgroundColor={TflColors[this.state.selectedLine]}
+              labelColor="white"
+              disabled={!this.state.ready}
+              fullWidth={true}
+              onClick={this.addSelectionToHistory}
+            />
+          </Link>
         </Paper>
         <StationHistory historyList={this.state.stationHistory} />
       </div>
