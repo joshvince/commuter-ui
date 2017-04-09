@@ -8,6 +8,7 @@ import StationHistory from './StationHistory';
 import TflColors from '../../styles/TflColors';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
+import {Link} from 'react-router';
 import './styles.css';
 
 class StationSelector extends Component {
@@ -79,12 +80,14 @@ class StationSelector extends Component {
           />
           <RaisedButton
             label="Go"
-            href={this.buildUrl(this.state.selectedStation, this.state.selectedLine)}
             backgroundColor={TflColors[this.state.selectedLine]}
             labelColor="white"
             disabled={!this.state.ready}
             fullWidth={true}
             onClick={this.addSelectionToHistory}
+            containerElement={
+              <Link to={this.buildUrl(this.state.selectedStation, this.state.selectedLine)} />
+            }
           />
         </Paper>
         <StationHistory historyList={this.state.stationHistory} />
