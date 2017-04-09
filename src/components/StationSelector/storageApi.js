@@ -18,8 +18,6 @@ function get(key) {
 
 /*
   Put a new item in storage under the given key.
-  The storage should only ever contain a maximum of three items.
-  Remove any more than three items before storing the new values.
 */
 function put(key, item) {
   if (browserSupports) {
@@ -62,17 +60,5 @@ function getItems(key) {
 }
 
 function putNewItem(key, item) {
-  if (storageExists(key)) {
-    // add the new item to the front of the array
-    var oldArray = JSON.parse(localStorage[key])
-    oldArray.unshift(item)
-    // slice the array so it only contains three elements and add to storage.
-    var newArray = oldArray.slice(0,3)
-    localStorage[key] = JSON.stringify(newArray)
-  }
-  else {
-    // create the storage and add this first item to the array
-    var data = JSON.stringify([item])
-    localStorage[key] = data
-  }
+  localStorage[key] = JSON.stringify([item])
 }
