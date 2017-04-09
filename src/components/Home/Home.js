@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import FeatureCard from './FeatureCard';
 import Info from './Info';
 
-import linesImg from '../../img/linesicon.svg';
 import trainsImg from '../../img/trainsicon.svg'
 
 import './Home.css';
