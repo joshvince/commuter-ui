@@ -11,8 +11,8 @@ ReactDOM.render((
   <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="/arrivals" component={StationSelector}/>
-      <Route path="/arrivals/:stationId/:lineId" component={ArrivalsBoard}/>
+      <Route path="arrivals" component={StationSelector}/>
+      <Route path="arrivals/:stationId/:lineId" component={ArrivalsBoard}/>
     </Route>
   </Router>
   ), document.getElementById('root')

@@ -8,7 +8,7 @@ import StationHistory from './StationHistory';
 import TflColors from '../../styles/TflColors';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import './styles.css';
 
 class StationSelector extends Component {
@@ -19,6 +19,7 @@ class StationSelector extends Component {
       stationList: [],
       lineList: [],
       selectedStation: null,
+      stationId: null,
       selectedLine: null,
       stationHistory: stationHistory,
       ready: false
@@ -38,6 +39,7 @@ class StationSelector extends Component {
     var lines = Lines.returnObjects(obj.lines)
     this.setState({
       selectedStation: obj,
+      stationId: obj.id,
       lineList: lines
     })
   }
@@ -50,13 +52,8 @@ class StationSelector extends Component {
   }
 
   buildUrl(stationObj, lineId){
-    if (stationObj === null || lineId === null) {
-      return ""
-    }
-    else {
-      var stationId = (stationObj === null) ? "" : stationObj.id
-      return `/arrivals/${stationId}/${lineId}`
-    }
+    var stationId = (stationObj === null) ? "" : stationObj.id
+    return `arrivals/${stationId}/${lineId}`
   }
 
   addSelectionToHistory(){
@@ -83,7 +80,7 @@ class StationSelector extends Component {
             hint="On the..."
             onSelection={this.setLine.bind(this)}
           />
-          <Link to={this.buildUrl(this.state.selectedStation, this.state.selectedLine)}>
+          <Link to={`arrivals/${this.state.stationId}/${this.state.selectedLine}`}>
             <RaisedButton
               label="Go"
               backgroundColor={TflColors[this.state.selectedLine]}
