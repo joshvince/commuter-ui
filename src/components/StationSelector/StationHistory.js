@@ -16,7 +16,7 @@ class stationHistory extends Component {
           <Paper>
             {this.props.historyList.map((obj, i) => {
               return(
-                <Link key={i} to={`/arrivals/${obj.station.id}/${obj.line}`}>
+                <Link key={i} to={`arrivals/${obj.station.id}/${obj.line}`}>
                   <HistoryItem
                     stationObject={obj.station}
                     lineData={obj.line}
