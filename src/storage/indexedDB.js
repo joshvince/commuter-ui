@@ -12,7 +12,7 @@ function initialise() {
     else {
       const dbName = "choobio_arrivals"
       var db;
-      var request = indexedDB.open(dbName, 1);
+      var request = indexedDB.open(dbName, 2);
 
       // handle ALL THE ERRORS.
       request.onerror = function(event) {
@@ -22,9 +22,9 @@ function initialise() {
       request.onupgradeneeded = function(event){
         db = event.target.result
         // Create an ObjectStore
-        var objectStore = db.createObjectStore("arrivals", {keyPath: "station_id"})
-        // Create an index on the station ID
-        objectStore.createIndex("station_id", "station_id", {unique: true})
+        var objectStore = db.createObjectStore("arrivals", {keyPath: ["station_id", "line_id"]})
+        // Create an index on the station ID and the line ID
+        objectStore.createIndex("station_line", ["station_id", "line_id"], {unique: true})
         resolve(db)
       }
     }
@@ -35,7 +35,7 @@ function getArrivals(stationId, lineId){
   return new Promise((resolve, reject) => {
     const dbName = "choobio_arrivals"
     var db;
-    var request = indexedDB.open(dbName, 1)
+    var request = indexedDB.open(dbName, 2)
 
     // Handle ERRORS
     request.onerror = function(event){
@@ -45,7 +45,7 @@ function getArrivals(stationId, lineId){
     request.onsuccess = function(event){
       db = event.target.result
       var objectStore = db.transaction(["arrivals"]).objectStore("arrivals");
-      var request = objectStore.get(stationId);
+      var request = objectStore.get([stationId, lineId]);
 
       request.onsuccess = function(event) {
         resolve(request.result)
@@ -59,7 +59,7 @@ function putNewArrivals(data) {
   return new Promise(function(resolve, reject) {
     const dbName = "choobio_arrivals"
     var db;
-    var request = indexedDB.open(dbName, 1);
+    var request = indexedDB.open(dbName, 2);
 
     // handle ALL THE ERRORS.
     request.onerror = function(event){

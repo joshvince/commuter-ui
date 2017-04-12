@@ -29,7 +29,8 @@ class ArrivalsBoard extends Component {
     // Storage.initialise().then(db => {
     //   this.fetchData()
     // }).catch(err => {
-    //   this.fetchData()
+    //   // this.fetchData()
+    //   console.error(err)
     // })
 
     this.fetchData();
