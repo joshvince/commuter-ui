@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import RefreshIcon from 'material-ui/svg-icons/navigation/refresh';
 import FlatButton from 'material-ui/FlatButton';
 import TflColors from '../../styles/TflColors';
 
@@ -13,7 +12,7 @@ class DataMonitor extends Component {
   }
 
   componentWillMount(){
-    this.intervalId = setInterval(this.staleData, 3000)
+    this.intervalId = setInterval(this.staleData, 30000)
   }
 
   staleData(){

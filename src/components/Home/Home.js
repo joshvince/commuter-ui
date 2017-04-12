@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import FeatureCard from './FeatureCard';
-import DataMonitor from '../Arrivals/DataMonitor';
-import Info from './Info';
 
 import trainsImg from '../../img/trainsicon.svg'
 
@@ -12,7 +10,10 @@ class Home extends Component {
   render() {
     return (
       <div className="HomeWrapper">
-        <Info />
+        <h1>Welcome to Choobio!</h1>
+        <h3>
+          I'll build a homepage soon.
+        </h3>
         <Link to="/arrivals">
           <FeatureCard
             featureName="Trains"
