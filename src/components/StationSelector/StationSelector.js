@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import Client from '../../Client.js';
-import Storage from './storageApi.js';
+import Storage from '../../storage/localStorage.js';
 import Lines from '../../parsers/lines.js';
 import TextSelector from './TextSelector';
 import OptionSelector from './OptionSelector';

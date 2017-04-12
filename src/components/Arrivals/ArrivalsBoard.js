@@ -1,38 +1,60 @@
 import React, { Component } from 'react';
 import StationHeader from './StationHeader';
 import Client from '../../Client';
-import Lines from '../../parsers/lines';
+import Storage from '../../storage/indexedDB.js';
 import TrainListContainer from './TrainListContainer';
+import DataMonitor from './DataMonitor';
 import CircularProgress from 'material-ui/CircularProgress';
 
 class ArrivalsBoard extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      stationData: {},
-      inboundArrivals: [],
-      inboundName: "inbound",
-      outboundArrivals: [],
-      outboundName: "outbound",
-      stationName: "",
-      lineName: "",
-      isLoading: true
+    var defaultStationObj = {
+      arrivals: {
+        inbound: {trains: [], name: "inbound"},
+        outbound: {trains: [],name: "outbound"}
+      },
+      station_name: null,
+      line_id: null
     }
+    this.state = {
+      stationData: defaultStationObj,
+      isLoading: false,
+      offline: false
+    }
+    this.fetchData = this.fetchData.bind(this)
   }
 
   componentWillMount(){
+    this.fetchData();
+  }
+
+  fetchData(){
+    this.setState({
+      isLoading: true
+    })
     var stationId = this.props.params.stationId
     var lineId = this.props.params.lineId
     Client.getArrivals(stationId, lineId).then(data => {
       this.setState({
         stationData: data,
-        inboundArrivals: data.arrivals.inbound.trains,
-        inboundName: data.arrivals.inbound.name,
-        outboundArrivals: data.arrivals.outbound.trains,
-        outboundName: data.arrivals.outbound.name,
-        stationName: data.station_name,
-        lineName: Lines.prettify(data.line_id),
-        isLoading: false
+        isLoading: false,
+        offline: false
+      })
+      Storage.putNewArrivals(data).then(res => {
+      }).catch(err => {
+        console.error("received a bad response from Storage");
+      })
+    })
+    .catch(err => {
+      Storage.getArrivals(stationId, lineId).then(data => {
+        this.setState({
+          stationData: data,
+          isLoading: false,
+          offline: true
+        })
+      }).catch(err => {
+        console.error(err)
       })
     })
   }
@@ -46,15 +68,19 @@ class ArrivalsBoard extends Component {
       this.state.isLoading ? loader :
       <div>
         <StationHeader
-          stationName={this.state.stationName}
-          lineName={this.state.lineName}
+          stationName={this.state.stationData.station_name}
+          lineId={this.state.stationData.line_id}
+        />
+        <DataMonitor
+          offline={this.state.offline}
+          refreshAction={this.fetchData}
           lineId={this.state.stationData.line_id}
         />
         <TrainListContainer
-          inboundList={this.state.inboundArrivals}
-          inboundName={this.state.inboundName}
-          outboundList={this.state.outboundArrivals}
-          outboundName={this.state.outboundName}
+          inboundList={this.state.stationData.arrivals.inbound.trains}
+          inboundName={this.state.stationData.arrivals.inbound.name}
+          outboundList={this.state.stationData.arrivals.outbound.trains}
+          outboundName={this.state.stationData.arrivals.outbound.name}
         />
       </div>
     )

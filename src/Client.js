@@ -31,9 +31,6 @@ function getArrivals(stationId, lineId, callback){
     accept: 'application/json'
   }).then(parseJSON)
     .then(callback)
-    .catch(err => {
-      console.log(err)
-    })
 }
 
 // LINES
