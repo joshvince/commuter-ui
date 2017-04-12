@@ -76,7 +76,6 @@ function putNewArrivals(data) {
       }
     }
   });
-
 }
 
 module.exports = {

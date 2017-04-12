@@ -26,13 +26,6 @@ class ArrivalsBoard extends Component {
   }
 
   componentWillMount(){
-    // Storage.initialise().then(db => {
-    //   this.fetchData()
-    // }).catch(err => {
-    //   // this.fetchData()
-    //   console.error(err)
-    // })
-
     this.fetchData();
   }
 
@@ -81,6 +74,7 @@ class ArrivalsBoard extends Component {
         <DataMonitor
           offline={this.state.offline}
           refreshAction={this.fetchData}
+          lineId={this.state.stationData.line_id}
         />
         <TrainListContainer
           inboundList={this.state.stationData.arrivals.inbound.trains}

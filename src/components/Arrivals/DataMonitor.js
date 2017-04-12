@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import RefreshIcon from 'material-ui/svg-icons/navigation/refresh';
+import FlatButton from 'material-ui/FlatButton';
+import TflColors from '../../styles/TflColors';
 
 class DataMonitor extends Component {
   constructor(props){
@@ -27,12 +29,25 @@ class DataMonitor extends Component {
   render(){
     var time = (this.state.stale) ? `more than` : `less than`
     var onlineMsg = `Updated ${time} 30s ago`
-    var offlineMsg = `You are offline. Arrival times may be wrong`
-    var msg = (this.props.offline) ? offlineMsg : onlineMsg
+    var offlineMsg = `You are offline`
+    var onlineCta = `Tap to update`
+    var offlineCta = `Tap to retry`
+
+    var styles = {
+      backgroundColor: TflColors[this.props.lineId],
+      color: 'white',
+      padding: 10
+    }
     return(
-      <div>
-        {msg}
-        <RefreshIcon onTouchTap={this.props.refreshAction} />
+      <div style={styles}>
+        <div>
+          {(this.props.offline) ? offlineMsg : onlineMsg}
+        </div>
+        <FlatButton
+          onTouchTap={this.props.refreshAction}
+          label={(this.props.offline) ? offlineCta : onlineCta}
+          labelStyle={{color: 'white'}}
+        />
       </div>
     )
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import FeatureCard from './FeatureCard';
+import DataMonitor from '../Arrivals/DataMonitor';
 import Info from './Info';
 
 import trainsImg from '../../img/trainsicon.svg'
