@@ -6,6 +6,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Storage from './storage/indexedDB.js';
 import Nav from './components/nav/Nav';
+import Footer from './components/nav/Footer';
 import './styles/App.css';
 import Theme from './styles/muitheme.js'
 
@@ -23,6 +24,7 @@ class App extends Component {
         <div id="appContainer">
           <Nav />
           {this.props.children}
+          <Footer />
         </div>
       </MuiThemeProvider>
 
