@@ -13,7 +13,8 @@ class Footer extends Component {
 
       bottom: 0,
       width: '100%',
-      padding: '2%'
+      padding: '3%',
+      boxSizing: 'border-box'
     }
     return(
       <div style={styles}>

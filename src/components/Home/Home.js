@@ -51,12 +51,7 @@ class Home extends Component {
             containerElement={<Link to="/arrivals"/>}
             fullWidth={true}
           />
-          <RaisedButton
-            label="learn more"
-            containerElement={<Link to="/"/>}
-            fullWidth={true}
-            style={{margin: 30}}
-          />
+          
         </div>
       </div>
     );
