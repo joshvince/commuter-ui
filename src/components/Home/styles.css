@@ -1,0 +1,30 @@
+.home-wrapper, .pane{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+}
+
+.hero-img-wrapper{
+  width: 30%;
+}
+
+.img-wrapper {
+  width: 20%
+}
+
+.img-wrapper > img, .hero-img-wrapper > img {
+  max-width: 100%;
+  height: auto;
+}
+
+.pane {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8%;
+}
+
+.pane:first-of-type, .pane:last-of-type {
+  padding: 10%;
+}
