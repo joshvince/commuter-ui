@@ -2,7 +2,8 @@
 CLIENT IS RESPONSIBLE FOR TALKING TO THE COMMUTER BACKEND SERVICE
 */
 const linesUrl = 'http://lines.choob.io'
-var choobUrl = 'https://choob-service.herokuapp.com'
+// var choobUrl = 'https://choob-service.herokuapp.com'
+var choobUrl = 'http://localhost:4000/api'
 var TflColors = require('./styles/TflColors.js');
 
 // STATIONS
@@ -22,10 +23,19 @@ function getStationList(callback){
     })
 }
 
+function getLineListForStation(stationId, callback) {
+  return fetch(`${choobUrl}/stations/${stationId}`, {
+    accept: 'application/json'
+  }).then(parseJSON)
+    .then(callback)
+    .catch(err => console.log(err))
+}
+
 // ARRIVALS
 
 function getArrivals(stationId, lineId, callback){
-  var url = `${choobUrl}/stations/${stationId}/${lineId}`
+  // var url = `${choobUrl}/stations/${stationId}/${lineId}`
+  var url = `${choobUrl}/arrivals/${stationId}/${lineId}`
   console.log(`calling: ${url}`);
   return fetch(url, {
     accept: 'application/json'
@@ -100,6 +110,7 @@ module.exports = {
   getLineData: getLineData,
   getLineObjects: getLineObjects,
   getStationList: getStationList,
+  getLineListForStation: getLineListForStation,
   getArrivals: getArrivals,
   sendFeedback: sendFeedback
 }

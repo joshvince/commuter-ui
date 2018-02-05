@@ -28,20 +28,23 @@ class StationSelector extends Component {
   }
 
   componentWillMount(){
-    Client.getStationList(data => {
+    Client.getStationList(resp => {
       this.setState({
-        stationList: data
+        stationList: resp.data
       })
     })
   }
 
   setStation(obj){
-    var lines = Lines.returnObjects(obj.lines)
-    this.setState({
-      selectedStation: obj,
-      stationId: obj.id,
-      lineList: lines
+    // var lines = Lines.returnObjects(obj.lines)
+    Client.getLineListForStation(obj.id, resp => {
+      this.setState({
+        selectedStation: obj,
+        stationId: obj.id,
+        lineList: resp.data.lines
+      })
     })
+    
   }
 
   setLine(id){

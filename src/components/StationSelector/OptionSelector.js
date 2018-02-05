@@ -25,7 +25,7 @@ class OptionSelector extends Component {
     var src = this.props.dataSource
     var menuItems = (src.length === 0) ? [] :
       src.map((obj, i) => {
-        return <MenuItem key={i} value={obj.id} primaryText={obj.pretty}/>
+        return <MenuItem key={i} value={obj.id} primaryText={obj.name}/>
       })
     var isDisabled = (src.length === 0) ? true : false
     return (

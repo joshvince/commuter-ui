@@ -35,13 +35,13 @@ class ArrivalsBoard extends Component {
     })
     var stationId = this.props.params.stationId
     var lineId = this.props.params.lineId
-    Client.getArrivals(stationId, lineId).then(data => {
+    Client.getArrivals(stationId, lineId).then(apiResp => {
       this.setState({
-        stationData: data,
+        stationData: apiResp.data.arrivals,
         isLoading: false,
         offline: false
       })
-      Storage.putNewArrivals(data).then(res => {
+      Storage.putNewArrivals(apiResp.data.arrivals).then(res => {
       }).catch(err => {
         console.error("received a bad response from Storage");
       })
